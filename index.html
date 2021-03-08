@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DOM</title>
+	<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+	<div id="container">
+			<h1 id="heading">♡ 농 담 곰 ♡</h1>
+			<div id="prod-pic">
+				<img src="images/ndg.jpg" alt="에디오피아 게뎁" id="cup" width="200" height="200">
+					<div id="small-pic">
+						<img src="images/ndg.jpg" class="small">
+						<img src="images/ndg1.jpg" class="small">
+						<img src="images/ndg2.jpg" class="small">
+					</div>
+			</div>			
+			<div id="desc">
+				<ul>
+					<li>상품명 : 농담곰</li>
+					<li class="bluetext">판매가 : 9,000,000,000원</li>
+					<li>배송비 : 3,000,000원<br>(50,000,000,000원 이상 구매 시 무료)</li>
+					<li>적립금 : 0원(0%)</li>
+					<li>제조일 : 2000.04.12</li>
+					<button>♥장바구니에 담을래용♥</button>
+				</ul>				
+				<a href="#" id="view">농담곰의 상세 설명 보기</a>				
+			</div>
+			<hr>
+			<div id="detail">									
+					<h2>상품 상세 정보</h2>
+					<ul>
+						<li>원산지 : 농담곰 왕국</li>
+						<li>지 역 : 농담마을</li>
+						<li>특 징 : 귀여움 </li>
+						<li> 키 : 약 30cm </li>
+						<li>주의사항 : 너무 귀여워서 주의 </li>
+						<li>농담곰 주인 : 진서윤</li>
+					</ul>
+					<h3>Information</h3>
+					<p>일본의 크리에이터 나가노(ナガノ) 작가의 라인 스탬프 캐릭터. 국내에서는 카카오톡 이모티콘으로 발매되고 있다.
+						처음에는 본인이 말하고 본인이 딴지를 거는 식으로 사용하는 스탬프였으나 시리즈가 더 발매되면서 점차 츳코미의 개념이 사라졌다. 라인스탬프 1과 최근을 비교하면 확실히 글자가 많이 줄었고 작가도 이를 인지하고 있는지 自分ツッコミくま의 어원에 관한 관련 만화를 그리기도 했다.
+						
+						일본명은 自分ツッコミくま로써 직역하면 '자신을 츳코미하는 곰'인데, 츳코미라는 표현을 그대로 쓰기도 어렵고, 설명하기도 다소 복잡하다보니 영문명 joke bear를 국내로 들여오면서 그대로 받아들여 농담곰이란 이름을 채택한 듯 하다.
+						
+						B-FLAT과 정식 판권 계약을 체결한 이후 국내에서도 다양한 전개가 이루어지고 있다.
+						</p>
+					<h3>NongDamGom's Note</h3>
+					<p>농담곰의 성격이나 성별은 특정지어져있지 않다고 한다. 실제로 농담곰은 여성복/남성복 등의 성별 구분없이 그때그때 상황에 따라 여러 옷을 입는다.</p>
+			</div>
+	</div>
+
+	<script>
+				var bigPic = document.querySelector("#cup");  
+		var smallPics = document.querySelectorAll(".small");  
+
+		for(i=0; i<smallPics.length; i++) {
+			smallPics[i].addEventListener("click", function() {
+				newPic = this.src;
+				bigPic.setAttribute("src", newPic);
+			});
+		}
+
+		var view = document.querySelector("#view");
+		view.addEventListener("click",function(){
+			if(isOpen == false){ //상세 정보가 감춰져있을때
+				document.querySelector("#detail").style.display = "block";
+				view.innerText = "상세 설명 닫기 " // 링크 내용 수정 
+				isOpen = true;
+			} else{ //상세정보가 열려있을때
+				document.querySelector("#detail").style.display = "none";
+				view.innerText = "상세 설명 보기 " // 링크 내용 수정 
+				isOpen = false;
+			}
+		});
+
+		var isOpen = false;
+		var cup = document.querySelector("#cup");
+		var smallPics = document.querySelectorAll(".small");
+	</script>
+</body>
+</html>
